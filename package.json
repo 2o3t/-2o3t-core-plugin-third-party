@@ -1,0 +1,25 @@
+{
+    "name": "@2o3t-core/plugin-third-party",
+    "version": "0.0.1",
+    "description": "2o3t-core 第三方插件",
+    "main": "index.js",
+    "author": "zyao89 <zyao89@gmail.com>",
+    "license": "MIT",
+    "plugin": true,
+    "dependencies": {
+        "kcors": "^2.2.2",
+        "koa-body": "^4.1.0",
+        "koa-bodyparser": "^4.2.1",
+        "koa-compose": "^4.1.0",
+        "koa-helmet": "^4.1.0",
+        "koa-json": "^2.0.2",
+        "koa-onerror": "^4.1.0",
+        "lodash": "^4.17.11",
+        "ua-parser-js": "^0.7.19"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.1",
+        "eslint": "^5.15.3",
+        "eslint-config-2o3t": "^1.1.4"
+    }
+}
