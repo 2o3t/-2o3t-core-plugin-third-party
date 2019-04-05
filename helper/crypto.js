@@ -2,7 +2,7 @@
 
 const crypto = require('crypto');// 生成口令的散列值
 
-module.exports = function(app, opts) {
+module.exports = function cryptoHelper(app, opts) {
 
     const inter = {};
 
@@ -20,6 +20,10 @@ module.exports = function(app, opts) {
         return md5;
     };
 
+    // 获取随机字符串
+    inter.getID = function(length) {
+        return crypto.randomBytes(length).toString('hex');
+    };
 
     return inter;
 };

@@ -5,6 +5,7 @@ module.exports = {
         mixins: [
             'thirdParty',
             'agent',
+            'session',
             'koaBody',
         ],
 

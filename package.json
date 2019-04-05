@@ -1,6 +1,6 @@
 {
     "name": "@2o3t-core/plugin-third-party",
-    "version": "0.0.1",
+    "version": "0.0.7",
     "description": "2o3t-core 第三方插件",
     "main": "index.js",
     "author": "zyao89 <zyao89@gmail.com>",
@@ -14,6 +14,7 @@
         "koa-helmet": "^4.1.0",
         "koa-json": "^2.0.2",
         "koa-onerror": "^4.1.0",
+        "koa-session2": "^2.2.10",
         "lodash": "^4.17.11",
         "ua-parser-js": "^0.7.19"
     },
