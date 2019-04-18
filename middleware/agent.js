@@ -31,7 +31,7 @@ module.exports = function() {
         }
         if (Array.isArray(ips)) {
             ips = Array.from(new Set(ips));
-            ips = ips.join(',');
+            ips = ips.reverse().join(',');
         }
 
         ctx.agent = {

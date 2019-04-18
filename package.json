@@ -1,6 +1,6 @@
 {
     "name": "@2o3t-core/plugin-third-party",
-    "version": "0.0.7",
+    "version": "0.0.9",
     "description": "2o3t-core 第三方插件",
     "main": "index.js",
     "author": "zyao89 <zyao89@gmail.com>",
