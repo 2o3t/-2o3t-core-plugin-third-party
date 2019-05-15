@@ -1,7 +1,7 @@
 'use strict';
 const assert = require('assert');
-const session = require('koa-session2');
-const Store = session.Store;
+const koaSession = require('koa-session2');
+const Store = koaSession.Store;
 
 module.exports = function(app, opts) {
     assert.ok(app);
@@ -32,19 +32,19 @@ module.exports = function(app, opts) {
         async set(session, { sid = this.getID(24), maxAge = 1000000 } = {}, ctx) {
             if (session && session[SESSION_KEY]) { // 换成 SESSION_KEY
                 sid = `${SESSION_KEY}:${session[SESSION_KEY]}`;
+                sid = md5Sign(sid);
             }
-            const key = md5Sign(sid);
             try {
                 // Use redis set EX to automatically drop expired sessions
                 if (config.dev) {
                     await this.redis.set(
-                        key,
+                        sid,
                         JSON.stringify(session),
                         maxAge / 1000
                     );
                 } else {
                     await this.redis.set(
-                        key,
+                        sid,
                         JSON.stringify(session),
                         'EX',
                         maxAge / 1000
@@ -53,7 +53,7 @@ module.exports = function(app, opts) {
             } catch (e) {
                 // nothing;
             }
-            return key;
+            return sid;
         }
 
         async destroy(sid, ctx) {
@@ -63,7 +63,7 @@ module.exports = function(app, opts) {
     }
 
     const store = new RedisStore();
-    return session({
+    return koaSession({
         key: SESSION_KEY,
         maxAge: SESSION_MAX_AGE,
         store,
